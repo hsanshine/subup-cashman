@@ -1,0 +1,11 @@
+.full-frame{
+width: 100vw;
+height: 100vh;
+
+}
+.main{
+    /* width: 90%; */
+    /* max-width: 40em; */
+    max-width: 50rem;
+  
+} 

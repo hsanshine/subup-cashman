@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.gen-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gen-link:hover,
+.gen-link:active {
+  text-decoration: none;
+  color: inherit;
+}
