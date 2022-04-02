@@ -5,7 +5,7 @@ import { Form, Col, Row } from "react-bootstrap";
 import FormInputError from "./FormInputError";
 
 const FormDomination = (props) => {
-  const [qtyError, setQtyError] = useState(false); //or it can come from up props.error
+  const [qtyError, setQtyError] = useState(false);
   const [enteredValue, setEnteredValue] = useState(props.initValue);
   const handleQtyChange = (event) => {
     setEnteredValue(event.target.value);

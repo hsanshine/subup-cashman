@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 
 import FormDomination from "./FormDomination";
-import notesTotal from "../utils/notesToCash";
+import { notesTotal, adminNotesTotal } from "../utils/notesToCash";
 import FormInputError from "./FormInputError";
 import CustomCard from "../UI/CustomCard";
 
@@ -25,7 +25,7 @@ const stateIntialization = ({
   task,
 }) => {
   const bankSlip = {
-    amount: isAdmin ? notesTotal(availableNotes) : 0,
+    amount: isAdmin ? adminNotesTotal(availableNotes) : 0,
     notes: [],
     availableNotes: availableNotes,
     notesError: false,
@@ -44,10 +44,9 @@ const reducer = (state, action) => {
     return {
       ...state,
       notes: action.payLoad,
-      amount: notesTotal(action.payLoad),
+      amount: adminNotesTotal(action.payLoad),
     };
   } else if (action.type === "ADD-NOTES") {
-    // check to see if the note max qty has not yet been exceed???
     const notesArray = [...state.notes];
     const newNote = action.payLoad;
     const noteIndex = state.notes.findIndex((note) => note.id === newNote.id);

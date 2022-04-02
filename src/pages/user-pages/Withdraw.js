@@ -5,19 +5,6 @@ import { withdraw } from "../../features/user/userSlice";
 import { updateMachineBalance } from "../../features/admin/adminSlice";
 import BankForm from "../../components/BankForm";
 
-// const NOTES = [
-//   {
-//     id: "20",
-//     value: 20,
-//     maxQty: 100,
-//   },
-//   {
-//     id: "50",
-//     value: 50,
-//     maxQty: 100,
-//   },
-// ];
-
 const Withdraw = () => {
   const dispatch = useDispatch();
   const userCredit = useSelector((state) => state.user.accountBalance);

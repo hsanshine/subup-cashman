@@ -8,6 +8,9 @@ import Withdraw from "./pages/user-pages/Withdraw";
 import Intialize from "./pages/admin-pages/Intialize";
 import Deposit from "./pages/user-pages/Deposit";
 
+//TODO: to add some persistence
+//TODO: get the notes from the backend; what notes are available
+//TODO: get the user info from the backend , user.accountBalance
 function App() {
   return (
     <div className="App">

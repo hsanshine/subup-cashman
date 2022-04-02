@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import notesTotal from "../../utils/notesToCash";
+import { notesTotal, adminNotesTotal } from "../../utils/notesToCash";
 
-//the notes can be pulled from outside
+//the notes can be pulled from outside: they can come from the back end
+//we should later late the admin be able to add a new kind of coin
 //the balance can be calculated from the notes
 const NOTES = [
   {
@@ -27,25 +28,19 @@ export const adminSlice = createSlice({
   initialState,
   reducers: {
     intialize: (state, action) => {
-      //   console.log(action);
       state.notes = action.payload.notes;
-      state.machineBalance = action.payload.machineBalance;
+      state.machineBalance = adminNotesTotal(action.payload.notes);
     },
     updateMachineBalance: (state, action) => {
       const userNotes = action.payload.notes;
       const newNotes = state.notes.map((stateNote) => {
-        const stateNoteId = stateNote.id; // this is the note object in state
-        // if i have this object in my action aray too  i should  update it.. otherwise i should just return it untouched...
+        const stateNoteId = stateNote.id;
         const userNoteIndex = userNotes.findIndex(
           (userNote) => userNote.id === stateNoteId
         );
         if (userNoteIndex === -1) return stateNote;
-        //the note in our state and needs to be updated with new max qty
         const userNote = userNotes[userNoteIndex];
         const qtyChange = userNote.qty;
-
-        //const oldNote = state.notes[stateIndex];
-        //return the updated state note
         return {
           ...stateNote,
           maxQty: action.payload.isDepositing
@@ -54,7 +49,9 @@ export const adminSlice = createSlice({
         };
       });
       state.notes = newNotes;
-      state.machineBalance = notesTotal(newNotes);
+      console.log("notes notes are ", state.notes);
+      state.machineBalance = adminNotesTotal(state.notes);
+      console.log("updated machine balance is : ", state.machineBalance);
     },
   },
 });

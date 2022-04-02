@@ -5,4 +5,10 @@ const notesTotal = (notesArray) => {
   return sum;
 };
 
-export default notesTotal;
+const adminNotesTotal = (notesArray) => {
+  const sum = notesArray.reduce((accumulator, currentNote) => {
+    return accumulator + Number(currentNote.value) * Number(currentNote.maxQty);
+  }, 0);
+  return sum;
+};
+export { notesTotal, adminNotesTotal };
