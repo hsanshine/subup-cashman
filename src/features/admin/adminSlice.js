@@ -49,9 +49,7 @@ export const adminSlice = createSlice({
         };
       });
       state.notes = newNotes;
-      console.log("notes notes are ", state.notes);
       state.machineBalance = adminNotesTotal(state.notes);
-      console.log("updated machine balance is : ", state.machineBalance);
     },
   },
 });

@@ -7,7 +7,6 @@ import BankForm from "../../components/BankForm";
 
 const Intialize = () => {
   const machineBalance = useSelector((state) => state.admin.machineBalance);
-  console.log("machine balance is ", machineBalance);
   const notes = useSelector((state) => state.admin.notes);
 
   const dispatch = useDispatch();

@@ -12,7 +12,6 @@ const Withdraw = () => {
   const history = useHistory();
 
   const handleFormSubmit = (withdrawReport) => {
-    console.log(withdrawReport);
     dispatch(
       updateMachineBalance({
         notes: withdrawReport.notesChange,
@@ -24,7 +23,6 @@ const Withdraw = () => {
   };
 
   const handleFormCancel = () => {
-    console.log("form was canceld");
     history.push("/user");
   };
 
